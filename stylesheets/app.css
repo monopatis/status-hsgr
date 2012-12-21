@@ -188,3 +188,8 @@ li.event:even {
 a.description {
   font-weight: bold;
 }
+
+.graph {
+    margin: 0px auto;
+    width: 100%;
+}
