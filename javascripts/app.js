@@ -110,10 +110,24 @@ function get_events() {
   });
 }
 
+//get hackers counter
+function get_vision() {
+$.ajax({
+  url: 'http://hackerspace.gr/api.php?action=query&prop=revisions&rvprop=content&format=json&titles=Vision',
+  dataType: 'jsonp',
+  crossDomain: true,
+  cache: false
+}).done(function(json) {
+  var vision = json.query.pages[124].revisions[0]["*"];
+  $('#vision').html(vision);
+});
+};
+
 $(document).ready(function() {
   //$('#content').load('status.html');
   get_counter();
   get_events();
+  get_vision();
   var refreshId = setInterval(function() {
     get_counter();
   }, 100000);
