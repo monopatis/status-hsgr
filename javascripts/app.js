@@ -112,20 +112,9 @@ function get_events() {
 
 $(document).ready(function() {
   //$('#content').load('status.html');
-  $('#content_budget').hide();
   get_counter();
   get_events();
   var refreshId = setInterval(function() {
     get_counter();
   }, 100000);
-
-  $("a#link_budget").click(function(event){
-    $('#content_status').hide();
-    $('#content_budget').show();
-  });
-
-  $("a#link_status").click(function(event){
-    $('#content_status').show();
-    $('#content_budget').hide();
-  });
 });
