@@ -119,6 +119,11 @@ $.ajax({
   cache: false
 }).done(function(json) {
   var vision = json.query.pages[124].revisions[0]["*"];
+  vision = vision.replace(/\n/g, "<br />");
+  vision = vision.replace(/'/g, "");
+  vision = vision.replace(/(\={3,})(\w+)(\={3,})/g, "<h6>$2</h6>");
+  vision = vision.replace(/(\={2,})(\w+)(\={2,})/g, "<h5>$2</h5>");
+  vision = vision.replace(/(\[\[Image:)(\w+)(\.\w{3,})(\|\w+\=\w+\s\w+\|\w+\]\])/g, "<img src='//www.hackerspace.gr/wiki/Images/$2$3' />");
   $('#vision').html(vision);
 });
 };
